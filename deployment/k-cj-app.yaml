@@ -1,18 +1,12 @@
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  creationTimestamp: null
   name: cj-sample-c
 spec:
   jobTemplate:
-    metadata:
-      creationTimestamp: null
-      name: cj-sample-c
     spec:
       template:
-        metadata:
-          creationTimestamp: null
         spec:
           containers:
           - image: cj-sample-i:latest
@@ -23,4 +17,3 @@ spec:
   schedule: '*/2 * * * *'
   successfulJobsHistoryLimit: 2 # retained pods
   failedJobsHistoryLimit: 2 # retained pods
-status: {}
